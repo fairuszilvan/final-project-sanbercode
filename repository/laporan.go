@@ -30,8 +30,8 @@ func InsertLaporan(db *sql.DB, laporan structs.Laporan) (err error) {
 	return errs.Err()
 }
 func UpdateLaporan(db *sql.DB, laporan structs.Laporan) (err error) {
-	sql := "UPDATE laporan SET jenis_laporan=$2,bukti_pengesahan=$3,total_harga=$4,create_at=$5,update_at=$6,vendor_id=$7,users_id=$7,produk_id=$8 WHERE id=$1"
-	errs := db.QueryRow(sql, laporan.Jenis_laporan, laporan.Bukti_pengesahan, laporan.Create_at, laporan.Update_at, laporan.Vendor_id, laporan.Users_id, laporan.Produk_id)
+	sql := "UPDATE laporan SET jenis_laporan=$2,bukti_pengesahan=$3,total_harga=$4,created_at=$5,updated_at=$6,vendor_id=$7,users_id=$7,produk_id=$8 WHERE id=$1"
+	errs := db.QueryRow(sql, laporan.Jenis_laporan, laporan.Bukti_pengesahan, laporan.Create_at, time.Now(), laporan.Vendor_id, laporan.Users_id, laporan.Produk_id)
 	return errs.Err()
 }
 func DeleteLaporan(db *sql.DB, laporan structs.Laporan) (err error) {

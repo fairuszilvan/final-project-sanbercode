@@ -36,7 +36,7 @@ func UpdateProduct(db *sql.DB, product structs.Product) (err error) {
 	s := product.Stok
 	h := product.Harga
 	t := s * h
-	errs := db.QueryRow(sql, product.ID, product.Nama_produk, product.Jenis_produk, product.Deskripsi, product.Tanggal_kadaluarsa, product.Stok, product.Harga, t, product.Create_at, product.Update_at, product.Vendor_id)
+	errs := db.QueryRow(sql, product.ID, product.Nama_produk, product.Jenis_produk, product.Deskripsi, product.Tanggal_kadaluarsa, product.Stok, product.Harga, t, product.Create_at, time.Now(), product.Vendor_id)
 	return errs.Err()
 }
 func DeleteProduct(db *sql.DB, product structs.Product) (err error) {
