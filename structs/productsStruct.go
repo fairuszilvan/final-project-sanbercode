@@ -14,6 +14,6 @@ type Product struct {
 	Harga              int       `json:"harga"`
 	Total_harga        int       `json:"total_harga"`
 	Create_at          time.Time `json:"created_at"`
-	Update_at          time.Time `json:"update_at"`
+	Update_at          time.Time `json:"updated_at"`
 	Vendor_id          int       `json:"vendor_id"`
 }
