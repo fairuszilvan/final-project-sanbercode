@@ -59,7 +59,7 @@ func main() {
 
 	router.GET("/laporan", middleware.Login, controllers.IndexLaporan)
 	router.POST("/laporan", middleware.Login, controllers.InsertLaporan)
-	router.PUT("/laporan/laporan-update/:laporanID", middleware.Login, controllers.UpdateUser)
+	router.PUT("/laporan/laporan-update/:laporanID", middleware.Login, controllers.UpdateLaporan)
 	router.DELETE("/users/laporan-delete/:laporanID", middleware.Login, controllers.DeleteLaporan)
 
 	router.GET("/view", middleware.Login, controllers.CreateView)
