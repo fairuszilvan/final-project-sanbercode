@@ -32,8 +32,11 @@ func InsertProduct(db *sql.DB, product structs.Product) (err error) {
 	return errs.Err()
 }
 func UpdateProduct(db *sql.DB, product structs.Product) (err error) {
-	sql := "UPDATE product SET nama_produk=$2,jenis_produk=$3,deskripsi=$4,tanggal_kadaluarsa=$5,stok=$6,harga=$7,created_at=$8,updated_at,=$9,vendor_id=$10 WHERE id=$1"
-	errs := db.QueryRow(sql, product.ID, product.Nama_produk, product.Jenis_produk, product.Deskripsi, product.Tanggal_kadaluarsa, product.Stok, product.Harga, product.Create_at, product.Update_at, product.Vendor_id)
+	sql := "UPDATE product SET nama_produk=$2,jenis_produk=$3,deskripsi=$4,tanggal_kadaluarsa=$5,stok=$6,harga=$7,total_harga=$8,created_at=$9,updated_at,=$10,vendor_id=$11 WHERE id=$1"
+	s := product.Stok
+	h := product.Harga
+	t := s * h
+	errs := db.QueryRow(sql, product.ID, product.Nama_produk, product.Jenis_produk, product.Deskripsi, product.Tanggal_kadaluarsa, product.Stok, product.Harga, t, product.Create_at, product.Update_at, product.Vendor_id)
 	return errs.Err()
 }
 func DeleteProduct(db *sql.DB, product structs.Product) (err error) {
