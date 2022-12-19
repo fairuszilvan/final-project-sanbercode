@@ -30,7 +30,7 @@ func InsertLaporan(db *sql.DB, laporan structs.Laporan) (err error) {
 	return errs.Err()
 }
 func UpdateLaporan(db *sql.DB, laporan structs.Laporan) (err error) {
-	sql := "UPDATE laporan SET jenis_laporan=$2,bukti_pengesahan=$3,total_harga=$4,created_at=$5,updated_at=$6,vendor_id=$7,users_id=$7,produk_id=$8 WHERE id=$1"
+	sql := "UPDATE laporan SET jenis_laporan=$2,bukti_pengesahan=$3,created_at=$4,updated_at=$5,vendor_id=$6,users_id=$7,produk_id=$8 WHERE id=$1"
 	errs := db.QueryRow(sql, laporan.Jenis_laporan, laporan.Bukti_pengesahan, laporan.Create_at, time.Now(), laporan.Vendor_id, laporan.Users_id, laporan.Produk_id)
 	return errs.Err()
 }

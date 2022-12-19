@@ -8,7 +8,6 @@ type Laporan struct {
 	ID               int       `json:"laporanID"`
 	Jenis_laporan    string    `json:"jenis_laporan"`
 	Bukti_pengesahan string    `json:"bukti_pengesahan"`
-	Total_harga      int       `json:"total_harga"`
 	Create_at        time.Time `json:"created_at"`
 	Update_at        time.Time `json:"update_at"`
 	Vendor_id        int       `json:"vendor_id"`
