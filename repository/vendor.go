@@ -29,7 +29,7 @@ func InsertVendor(db *sql.DB, vendor structs.Vendor) (err error) {
 	return errs.Err()
 }
 func UpdateVendor(db *sql.DB, vendor structs.Vendor) (err error) {
-	sql := "UPDATE vendor SET nama_vendor=$2,alamat=$3,created_at=$6,updated_at=$5 WHERE id=$1"
+	sql := "UPDATE vendor SET nama_vendor=$2,alamat=$3,created_at=$4,updated_at=$5 WHERE id=$1"
 	errs := db.QueryRow(sql, vendor.ID, vendor.Nama_vendor, vendor.Alamat, vendor.Create_at, time.Now())
 	return errs.Err()
 }
