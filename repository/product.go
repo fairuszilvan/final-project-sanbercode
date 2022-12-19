@@ -32,7 +32,7 @@ func InsertProduct(db *sql.DB, product structs.Product) (err error) {
 	return errs.Err()
 }
 func UpdateProduct(db *sql.DB, product structs.Product) (err error) {
-	sql := "UPDATE product SET nama_produk=$2,jenis_produk=$3,deskripsi=$4,tanggal_kadaluarsa=$5,stok=$6,harga=$7,total_harga=$8,created_at=$9,updated_at,=$10,vendor_id=$11 WHERE id=$1"
+	sql := "UPDATE product SET nama_produk=$2,jenis_produk=$3,deskripsi=$4,tanggal_kadaluarsa=$5,stok=$6,harga=$7,total_harga=$8,created_at=$9,updated_at=$10,vendor_id=$11 WHERE id=$1"
 	s := product.Stok
 	h := product.Harga
 	t := s * h
