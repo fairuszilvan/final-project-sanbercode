@@ -42,6 +42,7 @@ func main() {
 	defer db.Close()
 
 	router := gin.Default()
+	router.POST("/login", middleware.Login)
 	router.GET("/products", middleware.Login, controllers.IndexProduct)
 	router.POST("/products", middleware.Login, controllers.InsertProduct)
 	router.PUT("/products/products-update/:proID", middleware.Login, controllers.UpdateProduct)
